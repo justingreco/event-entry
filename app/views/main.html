@@ -1,0 +1,15 @@
+<div class="container well">
+<!--   <select class="form-control" ng-options="street as street.attributes.CARTONAME  for street in streets" ng-model="street" ng-change="streetSelected()">
+    <option value="">Select main street...</option>
+  </select> -->
+
+    <input type="text" ng-model="street" typeahead="street as street.attributes.CARTONAME for street in streets($viewValue)" typeahead-on-select="streetSelected()">
+
+  <select class="form-control" ng-options="intersection as intersection.attributes.CARTONAME  for intersection in intersections" ng-model="street1" ng-disabled="intersections.length === 0" ng-change="firstSelected()">
+    <option value="">Select first street...</option>
+  </select>  
+  <select class="form-control" ng-options="intersection as intersection.attributes.CARTONAME  for intersection in intersections" ng-model="street2" ng-disabled="intersections.length === 0" ng-change="secondSelected()">
+    <option value="">Select second street...</option>
+  </select>   
+</div>
+<leaflet center="center" geojson="geojson"></leaflet>
